@@ -17,7 +17,7 @@ The format is usually stated up front. If not, ask whether working code is expec
 
 ## Scope of an LLD answer
 
-The unit of design is the class, and the whole model runs in one process with in-memory storage. Sharding, caching layers, message queues, and load balancers are out of place unless the interviewer brings them up. Concurrency within the process is in scope ([note 13](13-concurrency.md)), and distribution across machines is not. [Note 02](02-requirements-and-scoping.md#non-functional-constraints-at-this-level) draws that line in more detail.
+The unit of design is the class, and the whole model runs in one process with in-memory storage. Sharding, caching layers, message queues, and load balancers are out of place unless the interviewer brings them up. Concurrency within the process is in scope ([note 13](13-concurrency.md)), and distribution across machines is not. That line is drawn in more detail in [note 02](02-requirements-and-scoping.md#non-functional-constraints-at-this-level).
 
 ## What is scored
 
@@ -85,13 +85,13 @@ For the parking lot, the result might read:
   - one entrance and one exit
 ```
 
-Common failure: skipping this phase. Every later decision depends on it, and an unstated assumption the interviewer disagrees with can invalidate the whole design. [Note 02](02-requirements-and-scoping.md) has the question banks.
+Common failure: skipping this phase. Every later decision depends on it, and an unstated assumption the interviewer disagrees with can invalidate the whole design. The question banks are in [note 02](02-requirements-and-scoping.md).
 
 ### 2. Identify core objects
 
 Goal: a list of candidate classes, each with a one-line responsibility.
 
-Extract nouns from the requirements and filter them: `ParkingLot`, `Floor`, `Spot`, `Vehicle`, `Ticket`, `FeePolicy`. Separate entities (have identity and a lifecycle: `Spot`, `Ticket`) from value objects (defined by their values: `SpotSize`, `Money`). Name the places where behavior varies, since those are where interfaces go: spot assignment rules and fee calculation. [Note 03](03-object-modeling.md) covers the technique.
+Extract nouns from the requirements and filter them: `ParkingLot`, `Floor`, `Spot`, `Vehicle`, `Ticket`, `FeePolicy`. Separate entities (have identity and a lifecycle: `Spot`, `Ticket`) from value objects (defined by their values: `SpotSize`, `Money`). Name the places where behavior varies, since those are where interfaces go: spot assignment rules and fee calculation. The technique is in [note 03](03-object-modeling.md).
 
 Common failure: modeling the actors as classes that do the work (`Attendant.park_car()`). Actors usually map to use cases, not to classes that hold logic.
 
@@ -240,7 +240,7 @@ Common failures: coding peripheral classes first (an `Admin` panel before `park`
 
 Goal: show the design survives the standard follow-ups.
 
-Concurrency: two cars arriving at once can both be handed the same spot, because `choose` then `spot.vehicle = vehicle` is check-then-act. Name the race and the fix (a lock around assignment in `ParkingLot`, or per-floor locks if contention matters). [Note 13](13-concurrency.md) covers the options.
+Concurrency: two cars arriving at once can both be handed the same spot, because `choose` then `spot.vehicle = vehicle` is check-then-act. Name the race and the fix (a lock around assignment in `ParkingLot`, or per-floor locks if contention matters). The options are in [note 13](13-concurrency.md).
 
 Extensions to expect for the parking lot, and where each lands in the design:
 

@@ -540,7 +540,3 @@ Ask these in order:
 5. If none of these apply and the hierarchy is small and stable, inheritance is fine, and it is usually the simpler design.
 
 In an interview, cite the question that decided the case rather than the slogan. For example: the borrowing policy is composed because a member's type changes on graduation, and inheritance cannot express that.
-
-## Reference materials
-
-- [The Composition Over Inheritance Principle](https://python-patterns.guide/gang-of-four/composition-over-inheritance/). The same argument in Python, showing how subclass explosion develops and how composition resolves it.

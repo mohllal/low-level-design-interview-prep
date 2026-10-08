@@ -305,7 +305,7 @@ class OrderService:
 
 The rule "only a placed order can be accepted" lives in `OrderService`, but nothing stops other code from writing `order.status = "delivered"` directly. Every rule is one bypass away from being broken, and the same checks end up duplicated wherever orders are touched. The `Order` entity above is the rich version: the status can only change through methods that check the transition table.
 
-Signs of an anemic model: entity classes with only fields and getters, service methods whose first parameter is an entity they mutate, and status fields typed as `str`. Martin Fowler's description of the anti-pattern is in the reference materials below.
+Signs of an anemic model: entity classes with only fields and getters, service methods whose first parameter is an entity they mutate, and status fields typed as `str`.
 
 ## Naming
 
@@ -376,7 +376,3 @@ classDiagram
 ```
 
 Relationship types and multiplicities follow [note 05](05-class-relationships.md). `Order` composes its `OrderLine`s because lines are created with the order and mean nothing without it. `Menu` aggregates `MenuItem`s because one item can appear on several of a restaurant's menus (lunch and dinner) and exists independently of any one of them.
-
-## Reference materials
-
-- Martin Fowler, [AnemicDomainModel](https://martinfowler.com/bliki/AnemicDomainModel.html). The standard description of the anemic model anti-pattern and why it gives up the benefits of object orientation.
