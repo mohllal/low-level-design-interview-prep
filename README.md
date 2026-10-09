@@ -1,5 +1,11 @@
 # Low Level Design Interview Preparation
 
+> [!NOTE]
+> This is part of my personal interview prep. I also have separate repos for:
+>
+> - [Coding](https://github.com/mohllal/coding-interview-prep)
+> - [High-level design](https://github.com/mohllal/high-level-design-interview-prep)
+
 These are my personal notes and reference materials to help prepare for low-level, object-oriented design interviews.
 
 ## Contents
