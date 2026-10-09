@@ -1,4 +1,4 @@
-# Low Level Design Interview Prep
+# Low Level Design Interview Preparation
 
 These are my personal notes and reference materials to help prepare for low-level, object-oriented design interviews.
 
@@ -21,6 +21,8 @@ These are my personal notes and reference materials to help prepare for low-leve
 | [13 — Concurrency](13-concurrency.md)                             | Shared mutable state and race conditions, Python's threading model and the GIL, locks, thread-safe class design, optimistic vs pessimistic locking, and idempotency.                                    |
 
 ## Books
+
+*Not all of these have been read cover to cover — this list mixes books I have read, partially read, or heard consistently good things about.*
 
 - *Domain-Driven Design: Tackling Complexity in the Heart of Software* — Eric Evans
 - *Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design and Iterative Development* — Craig Larman
